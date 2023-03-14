@@ -36,6 +36,7 @@ const getAssetsFile = (url: string) => {
 
 const lazyLoad = () => {
   if (imgRef.value) {
+    /**目前有一个新的 IntersectionObserver API，可以自动"观察"元素是否可见，Chrome 51+ 已经支持。由于可见（visible）的本质是，目标元素与视口产生一个交叉区，所以这个 API 叫做交叉观察器 这个也可以实现 */
     const bound = imgRef.value.getBoundingClientRect()
     const clientHeight = window.innerHeight
     if (bound.top <= clientHeight) {
